@@ -197,7 +197,11 @@ export default Component.extend({
 
   // Methods
   handleRootMouseDown(e) {
-    if (this.hasMoved || this.dropdownElement.contains(e.target) || this.triggerElement && this.triggerElement.contains(e.target)) {
+    if (
+      this.hasMoved ||
+      (this.dropdownElement && this.dropdownElement.contains(e.target)) ||
+      (this.triggerElement && this.triggerElement.contains(e.target))
+    ) {
       this.hasMoved = false;
       return;
     }
